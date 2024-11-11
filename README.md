@@ -7,8 +7,7 @@ BITSkrieg Crew Project : Keylogger
 3. [Legal and Ethical Considerations](#legal-and-ethical-considerations)
 4. [Requirements](#requirements)
 5. [Installation](#installation)
-6. [Usage Instructions](#usage-instructions)
-7. [Configuration](#configuration)
+6. [Configuration](#configuration)
 ---
 
 ## Introduction
