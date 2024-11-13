@@ -8,6 +8,7 @@ BITSkrieg Crew Project : Keylogger
 4. [Requirements](#requirements)
 5. [Installation](#installation)
 6. [Configuration](#configuration)
+7. [Known Issues](#known-issues)
 ---
 
 ## Introduction
@@ -74,3 +75,11 @@ To customize this tool, you can modify certain key parameters within the script 
 
 - `file_path` Define the directory where you want the keystroke log and screenshots to be saved.
 - Screenshot Interval: Modify the interval for screenshots by adjusting `time.sleep(30)` in the take_screenshot function.
+---
+## Known Issues 
+**1. Webcame Compatibility issues :**
+- Since we are using External Library for webcam (pygame.camera).
+- Some webcams may not be supported.
+
+**2. Limited Keylogging :**
+- Some special keys (like function keys) may not be logged accurately due to limitations in the pynput library.
