@@ -8,7 +8,8 @@ BITSkrieg Crew Project : Keylogger
 4. [Requirements](#requirements)
 5. [Installation](#installation)
 6. [Configuration](#configuration)
-7. [Known Issues](#known-issues)
+7. [File Structure](#file-structure)
+8. [Known Issues](#known-issues)
 ---
 
 ## Introduction
@@ -75,6 +76,14 @@ To customize this tool, you can modify certain key parameters within the script 
 
 - `file_path` Define the directory where you want the keystroke log and screenshots to be saved.
 - Screenshot Interval: Modify the interval for screenshots by adjusting `time.sleep(30)` in the take_screenshot function.
+---
+## File Structure 
+The following files and directories are created by the script 
+
+
+- ```important_files_do_not_delete_pls_ty.txt ``` - Stores logged keystrokes.
+- Screenshots (.png files) – Stored with timestamps, saved in the script's directory.
+- Webcam images (.jpg files) – Saved with timestamps if a webcam is available.
 ---
 ## Known Issues 
 **1. Webcame Compatibility issues :**
