@@ -1,5 +1,12 @@
 # Crew-Assignment
 BITSkrieg Crew Project : Keylogger
+### CONTRIBUTORS:
+* Divyam Agarwal
+* Dhyan Laad
+* Arnav Samaniya
+* Aditya Talwar
+* Debraj Ghosh
+
 ## Table of Contents
 
 1. [Introduction](#introduction)
